@@ -1,0 +1,1 @@
+void opaque_pattern_use(void);

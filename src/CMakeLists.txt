@@ -12,7 +12,7 @@ endif()
 project ("src")
 
 # Adicione a origem ao executável deste projeto.
-add_executable (src "src.cpp" "src.h")
+add_executable (src "src.c" "src.h" "creation_patterns/factory_pattern/factory_pattern.h" "creation_patterns/factory_pattern/factory_pattern.c" "creation_patterns/factory_pattern/shape/shape.h" "creation_patterns/factory_pattern/shape/shape.c" "creation_patterns/opaque_pattern/opaque_pattern.c" "creation_patterns/opaque_pattern/opaque_pattern.h" "creation_patterns/object_pattern/my_object/my_object.h" "creation_patterns/opaque_pattern/opaque/opaque.c" "creation_patterns/opaque_pattern/opaque/opaque.h" "creation_patterns/singleton_pattern/singleton_pattern.c" "creation_patterns/singleton_pattern/singleton_pattern.h" "creation_patterns/singleton_pattern/singleton_object/singleton_object.c" "creation_patterns/singleton_pattern/singleton_object/singleton_object.h" "creation_patterns/utils_macros.h")
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET src PROPERTY CXX_STANDARD 20)

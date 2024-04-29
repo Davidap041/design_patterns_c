@@ -1,0 +1,4 @@
+// Arquivos de dica ajudam o Visual Studio IDE a interpretar identificadores do Visual C++
+// por exemplo, nomes de funções e macros.
+// Para obter mais informações, consulte https://go.microsoft.com/fwlink/?linkid=865984
+#define DEFINE_SINGLETON_ACQUIRE_RELEASE(type) static struct type *_##type##_in_use; static LOCK_TYPE_T _##type##_lock = LOCK_INIT; struct type *type##_acquire_singleton(void) { LOCK_METHOD(&_##type##_lock); if (!_##type##_in_use) { _##type##_in_use = &_##type##_singleton; UNLOCK_METHOD(&_##type##_lock); return _##type##_in_use; } UNLOCK_METHOD(&_##type##_lock); return NULL; } void type##_release_singleton(struct type **self) { LOCK_METHOD(&_##type##_lock); if ((self != NULL) && (*self == _##type##_in_use)) { _##type##_in_use = NULL; *self = NULL; } UNLOCK_METHOD(&_##type##_lock); }
